@@ -7,7 +7,6 @@ namespace TicketStore.Data.Models
     public class TicketsInfo
     {
         public int TicketsInfoId { get; set; }
-        [Required]public int AmountOfTickets { get; set; }
         [Required]public DateTime ExpiredTime { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
     }

@@ -13,7 +13,7 @@ namespace TicketStore.Data.Models
         
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
-        public ICollection<Ticket>  Tickets{ get; set; }
+        public virtual ICollection<Ticket>  Tickets{ get; set; }
         public Order()
         {
             Tickets = new List<Ticket>();

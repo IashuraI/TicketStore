@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
-using System.Runtime.CompilerServices;
 
 namespace TicketStore.Data.Models
 {
@@ -23,7 +22,7 @@ namespace TicketStore.Data.Models
         [Required] 
         [DateTimeRangeValidator("1921-01-01T00:00:00", "2021-01-01T00:00:00")]
         public DateTime DayOfBirthday { get; set; }
-        public ICollection<Order> Orders { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
 
         public Customer()
         {

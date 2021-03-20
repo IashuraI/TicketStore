@@ -15,6 +15,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\TicketStore.Data\TicketStore.Data.csproj" />
+      <ProjectReference Include="..\TicketStore.Services\TicketStore.Services.csproj" />
     </ItemGroup>
 
 </Project>

@@ -1,0 +1,12 @@
+using TicketStore.Data.Models;
+
+namespace TicketStore.Models
+{
+    public class EventIndexListingModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public Filling Filling { get; set; }
+        public TicketsInfo TicketsInfo { get; set; }
+    }
+}

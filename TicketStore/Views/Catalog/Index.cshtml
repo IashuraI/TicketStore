@@ -1,0 +1,32 @@
+@model TicketStore.Models.EventIndexModel
+
+<div id="events">
+    <h3></h3>
+    <div id="eventsTable">
+        <table class="table table-condensed" id="catalogIndexTable">
+            <thead>
+            <tr>
+                <th>Immage</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>ExpiredTime</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var events in Model.Events)
+            {
+                <tr class="eventRow">
+                    <td class="">
+                        <a asp-controller="Catalog" asp-action="Index" asp-route-id="@events.Id">
+                            <img src="@events.Filling.ImageUrl" class="imageCell"/>
+                        </a>
+                    </td>
+                    <td>@events.Name</td>
+                    <td>@events.Filling.Description</td>
+                    <td>@events.TicketsInfo.ExpiredTime</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
