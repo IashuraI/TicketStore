@@ -1,7 +1,6 @@
 using System.Collections.Generic;
-using TicketStore.Data.Models;
 
-namespace TicketStore.Models
+namespace TicketStore.Models.Catalog
 {
     public class EventIndexModel
     {

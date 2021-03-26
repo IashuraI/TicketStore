@@ -1,4 +1,4 @@
-@model TicketStore.Models.EventIndexModel
+@model TicketStore.Models.Catalog.EventIndexModel
 
 <div id="events">
     <h3></h3>
@@ -17,7 +17,7 @@
             {
                 <tr class="eventRow">
                     <td class="">
-                        <a asp-controller="Catalog" asp-action="Index" asp-route-id="@events.Id">
+                        <a asp-controller="Catalog" asp-action="Detail" asp-route-id="@events.Id">
                             <img src="@events.Filling.ImageUrl" class="imageCell"/>
                         </a>
                     </td>

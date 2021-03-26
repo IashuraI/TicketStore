@@ -11,7 +11,6 @@ namespace TicketStore.Data.Models
         [Required]
         public DateTime CreateDate { get; set; }
         
-        public int CustomerId { get; set; }
         public Customer Customer { get; set; }
         public virtual ICollection<Ticket>  Tickets{ get; set; }
         public Order()

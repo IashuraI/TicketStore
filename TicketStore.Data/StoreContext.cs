@@ -14,5 +14,6 @@ namespace TicketStore.Data
         public DbSet<Ticket> Tickets { get; set; }
         public DbSet<TicketsInfo> TicketsInfos { get; set; }
         public DbSet<Filling> Fillings { get; set; }
+        public DbSet<TicketUniqueCode> TicketsUniqueCodes { get; set; }
     }
 }

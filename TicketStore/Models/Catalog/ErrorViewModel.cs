@@ -1,6 +1,4 @@
-using System;
-
-namespace TicketStore.Models
+namespace TicketStore.Models.Catalog
 {
     public class ErrorViewModel
     {

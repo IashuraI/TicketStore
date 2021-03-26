@@ -39,7 +39,7 @@ namespace TicketStore.Services
 
         public Event GetById(int id)
         {
-            return context.Events.FirstOrDefault(Event => Event.EventId == id);
+            return GetAllEvents().FirstOrDefault(Event => Event.EventId == id);
         }
 
         public string Name(int id)

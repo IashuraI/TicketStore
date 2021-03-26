@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using TicketStore.Data;
 using TicketStore.Data.Models;
 using TicketStore.Models;
+using TicketStore.Models.Catalog;
 
 namespace TicketStore.Controllers
 {
@@ -29,6 +30,21 @@ namespace TicketStore.Controllers
             var model = new EventIndexModel()
             {
                 Events = listingResult
+            };
+            
+            return View(model);
+        }
+
+        public IActionResult Detail(int id)
+        {
+            var eEvent = _event.GetById(id);
+            
+            var model = new EventDetailModel
+            {
+                Id = id,
+                Name = eEvent.Name,
+                ExpiredTime = eEvent.TicketsInfo.ExpiredTime,
+                Filling = eEvent.Filling,
             };
             
             return View(model);
