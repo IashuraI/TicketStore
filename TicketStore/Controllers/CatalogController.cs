@@ -24,7 +24,7 @@ namespace TicketStore.Controllers
                 Id = result.EventId,
                 Name = result.Name,
                 Filling = result.Filling,
-                TicketsInfo = result.TicketsInfo
+                TicketsInfos = result.TicketsInfos
             });
 
             var model = new EventIndexModel()
@@ -43,7 +43,7 @@ namespace TicketStore.Controllers
             {
                 Id = id,
                 Name = eEvent.Name,
-                ExpiredTime = eEvent.TicketsInfo.ExpiredTime,
+                ExpiredTime = eEvent.TicketsInfos.ExpiredTime,
                 Filling = eEvent.Filling,
             };
             

@@ -9,8 +9,6 @@ namespace TicketStore.Data
     {
         IEnumerable<Customer> GetAllCustomers();
         IEnumerable<Customer> GetAllCustomersAsNoTracking();
-        IEnumerable<Order> GetAllOrders();
-        IEnumerable<Order> GetAllOrdersAsNoTracking();
         Customer GetById(int id);
 
         void Add(Customer newCustomer);

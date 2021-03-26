@@ -7,6 +7,6 @@ namespace TicketStore.Models.Catalog
         public int Id { get; set; }
         public string Name { get; set; }
         public Filling Filling { get; set; }
-        public TicketsInfo TicketsInfo { get; set; }
+        public TicketsInfos TicketsInfos { get; set; }
     }
 }

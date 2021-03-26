@@ -31,22 +31,6 @@ namespace TicketStore.Services
                 .AsNoTracking();
         }
        
-        public IEnumerable<Order> GetAllOrders()
-        {
-            return context.Orders
-                .Include(order => order.Tickets)
-                .Include(order => order.CreateDate)
-                .AsTracking();
-        }
-
-        public IEnumerable<Order> GetAllOrdersAsNoTracking()
-        {
-            return context.Orders
-                .Include(order => order.Tickets)
-                .Include(order => order.CreateDate)
-                .AsNoTracking();
-        }
-
         public Customer GetById(int id)
         {
             return context.Customers.FirstOrDefault(customer => customer.Id == id);

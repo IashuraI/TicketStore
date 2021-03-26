@@ -20,14 +20,14 @@ namespace TicketStore.Services
         {
             return context.Events
                 .Include(events => events.Filling)
-                .Include(events => events.TicketsInfo);
+                .Include(events => events.TicketsInfos);
         }
 
         public IEnumerable<Event> GetAllEventsAsNoTracking()
         {
             return context.Events
                 .Include(events => events.Filling)
-                .Include(events => events.TicketsInfo)
+                .Include(events => events.TicketsInfos)
                 .AsNoTracking();
         }
 
@@ -39,7 +39,7 @@ namespace TicketStore.Services
 
         public Event GetById(int id)
         {
-            return GetAllEvents().FirstOrDefault(Event => Event.EventId == id);
+            return GetAllEvents().FirstOrDefault(events => events.EventId == id);
         }
 
         public string Name(int id)

@@ -9,7 +9,7 @@ namespace TicketStore.Data.Models
         [Required] public string Name { get; set; }
         [Required] public decimal Price { get; set; }
         
-        public virtual TicketsInfo TicketsInfo { get; set; }
+        public virtual TicketsInfos TicketsInfos { get; set; }
         public virtual ICollection<Order>  Orders{ get; set; }
         [Required] public ICollection<TicketUniqueCode> TicketsUniqueCodes { get; set; }
         public Ticket()
