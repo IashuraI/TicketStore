@@ -4,10 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TicketStore.Data.Models
 {
-    public class TicketsInfo
+    public class TicketsInfos
     {
-        public int TicketsInfoId { get; set; }
-        [Required]public int AmountOfTickets { get; set; }
+        public int TicketsInfosId { get; set; }
         [Required]public DateTime ExpiredTime { get; set; }
         public virtual ICollection<Ticket> Tickets { get; set; }
     }

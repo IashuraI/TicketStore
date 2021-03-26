@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TicketStore.Data;
 
 namespace TicketStore.Data.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20210319231135_Fixing Ticket and eth")]
+    partial class FixingTicketandeth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,14 +79,14 @@ namespace TicketStore.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TicketsInfosId")
+                    b.Property<int?>("TicketsInfoId")
                         .HasColumnType("int");
 
                     b.HasKey("EventId");
 
                     b.HasIndex("FillingId");
 
-                    b.HasIndex("TicketsInfosId");
+                    b.HasIndex("TicketsInfoId");
 
                     b.ToTable("Events");
                 });
@@ -117,7 +119,7 @@ namespace TicketStore.Data.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("CustomerId")
+                    b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
                     b.HasKey("OrderId");
@@ -134,6 +136,9 @@ namespace TicketStore.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("AmountOfTickets")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -141,43 +146,23 @@ namespace TicketStore.Data.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int?>("TicketsInfosId")
-                        .HasColumnType("int");
-
-                    b.HasKey("TicketId");
-
-                    b.HasIndex("TicketsInfosId");
-
-                    b.ToTable("Tickets");
-                });
-
-            modelBuilder.Entity("TicketStore.Data.Models.TicketUniqueCode", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<bool>("InStock")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("TicketId")
+                    b.Property<int?>("TicketsInfoId")
                         .HasColumnType("int");
 
                     b.Property<string>("UniqueCode")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("TicketId");
 
-                    b.HasIndex("TicketId");
+                    b.HasIndex("TicketsInfoId");
 
-                    b.ToTable("TicketsUniqueCodes");
+                    b.ToTable("Tickets");
                 });
 
-            modelBuilder.Entity("TicketStore.Data.Models.TicketsInfos", b =>
+            modelBuilder.Entity("TicketStore.Data.Models.TicketsInfo", b =>
                 {
-                    b.Property<int>("TicketsInfosId")
+                    b.Property<int>("TicketsInfoId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -185,7 +170,7 @@ namespace TicketStore.Data.Migrations
                     b.Property<DateTime>("ExpiredTime")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("TicketsInfosId");
+                    b.HasKey("TicketsInfoId");
 
                     b.ToTable("TicketsInfos");
                 });
@@ -211,42 +196,31 @@ namespace TicketStore.Data.Migrations
                         .WithMany()
                         .HasForeignKey("FillingId");
 
-                    b.HasOne("TicketStore.Data.Models.TicketsInfos", "TicketsInfos")
+                    b.HasOne("TicketStore.Data.Models.TicketsInfo", "TicketsInfo")
                         .WithMany()
-                        .HasForeignKey("TicketsInfosId");
+                        .HasForeignKey("TicketsInfoId");
 
                     b.Navigation("Filling");
 
-                    b.Navigation("TicketsInfos");
+                    b.Navigation("TicketsInfo");
                 });
 
             modelBuilder.Entity("TicketStore.Data.Models.Order", b =>
                 {
                     b.HasOne("TicketStore.Data.Models.Customer", "Customer")
                         .WithMany("Orders")
-                        .HasForeignKey("CustomerId");
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("TicketStore.Data.Models.Ticket", b =>
                 {
-                    b.HasOne("TicketStore.Data.Models.TicketsInfos", "TicketsInfos")
+                    b.HasOne("TicketStore.Data.Models.TicketsInfo", null)
                         .WithMany("Tickets")
-                        .HasForeignKey("TicketsInfosId");
-
-                    b.Navigation("TicketsInfos");
-                });
-
-            modelBuilder.Entity("TicketStore.Data.Models.TicketUniqueCode", b =>
-                {
-                    b.HasOne("TicketStore.Data.Models.Ticket", "Ticket")
-                        .WithMany("TicketsUniqueCodes")
-                        .HasForeignKey("TicketId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Ticket");
+                        .HasForeignKey("TicketsInfoId");
                 });
 
             modelBuilder.Entity("TicketStore.Data.Models.Customer", b =>
@@ -254,12 +228,7 @@ namespace TicketStore.Data.Migrations
                     b.Navigation("Orders");
                 });
 
-            modelBuilder.Entity("TicketStore.Data.Models.Ticket", b =>
-                {
-                    b.Navigation("TicketsUniqueCodes");
-                });
-
-            modelBuilder.Entity("TicketStore.Data.Models.TicketsInfos", b =>
+            modelBuilder.Entity("TicketStore.Data.Models.TicketsInfo", b =>
                 {
                     b.Navigation("Tickets");
                 });

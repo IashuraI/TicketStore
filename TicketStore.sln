@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketStore", "TicketStore\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketStore.Data", "TicketStore.Data\TicketStore.Data.csproj", "{DC51D01F-5CC3-4896-8B55-6F5DBD1CA6EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketStore.Services", "TicketStore.Services\TicketStore.Services.csproj", "{8E702EAF-DD50-4704-A3D5-2FE8A4DC6091}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{DC51D01F-5CC3-4896-8B55-6F5DBD1CA6EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC51D01F-5CC3-4896-8B55-6F5DBD1CA6EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC51D01F-5CC3-4896-8B55-6F5DBD1CA6EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E702EAF-DD50-4704-A3D5-2FE8A4DC6091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E702EAF-DD50-4704-A3D5-2FE8A4DC6091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E702EAF-DD50-4704-A3D5-2FE8A4DC6091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E702EAF-DD50-4704-A3D5-2FE8A4DC6091}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

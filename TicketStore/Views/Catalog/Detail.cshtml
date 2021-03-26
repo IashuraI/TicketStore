@@ -1,0 +1,22 @@
+@model TicketStore.Models.Catalog.EventDetailModel
+
+<div class="container">
+    <div class="page-header clearfix detailHeading">
+        <h2 class="text-muted">@Model.Name</h2>
+    </div>
+</div>
+
+<div class="jumbotron">
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <img class="detailImage" src="@Model.Filling.ImageUrl"/>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <p id="Name">@Model.Name</p>
+            <p id="Description">@Model.Filling.Description</p>
+            <p id="Expired Time">@Model.ExpiredTime</p>
+        </div>
+    </div>
+</div>
